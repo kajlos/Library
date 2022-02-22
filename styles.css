@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #ccc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+}
+header, footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin: 10px 0;
+    gap: 10px;
+}
+main{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+input[type=number] {
+    -webkit-appearance: textfield;
+  }
+.add-book-card{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding:1rem;
+    border-radius: 15px;
+    gap:6px;
+    position:fixed;
+    top:50%;
+    left: 50%;
+    transition: all 1s ease-in-out;
+    transform: translate(-50%,-50%) scale(0);
+    z-index: 10;
+}
+.add-book-card.active{
+    transform: translate(-50%,-50%) scale(1);
+}
+footer  img{
+    transition: all .6s ;
+}
+footer img:hover{
+    transform: rotate(360deg) scale(1.2);
+}
+button{
+    padding:10px 20px;
+}
+.overlay{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    top: 0;
+    right: 0;
+    bottom:0;
+    left:0;
+    pointer-events: none;
+    transform: scale(0);
+    transition: all .5s ease-in-out;
+}
+.overlay.active{
+    transform: scale(1);
+    pointer-events:all;
+}
