@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -5,12 +6,13 @@
 }
 body{
     background-color: #ccc;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 80%;
     margin: auto;
+    font-family: 'Roboto', sans-serif;
 }
 header, footer{
     display: flex;
@@ -22,8 +24,7 @@ header, footer{
 }
 main{
     display:flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
 }
 input[type=number] {
     -webkit-appearance: textfield;
@@ -38,9 +39,13 @@ input[type=number] {
     position:fixed;
     top:50%;
     left: 50%;
-    transition: all 1s ease-in-out;
+    transition: all .5s ease-in-out;
     transform: translate(-50%,-50%) scale(0);
     z-index: 10;
+}
+.add-book-card form{
+    display: flex;
+    flex-direction: column;
 }
 .add-book-card.active{
     transform: translate(-50%,-50%) scale(1);
@@ -53,6 +58,9 @@ footer img:hover{
 }
 button{
     padding:10px 20px;
+    margin: 6px 0;
+    border: none;
+    cursor: pointer;
 }
 .overlay{
     position: fixed;
@@ -64,9 +72,42 @@ button{
     left:0;
     pointer-events: none;
     transform: scale(0);
-    transition: all .5s ease-in-out;
+    transition: all .2s ease-in-out;
 }
 .overlay.active{
     transform: scale(1);
     pointer-events:all;
+}
+.add-book-button{
+    justify-self: flex-start;
+    align-self: center;
+
+}
+.book-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+    gap:16px;
+}
+.book-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: white;
+    border-radius: 16px;
+}
+.book-card button{
+    width: 100%;
+}
+p{
+    margin:6px 0;
+}
+.read{
+    background-color: lime;
+}
+.not-read{
+    background-color: lightcoral;
+}
+.remove{
+    background-color: red;
 }
