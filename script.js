@@ -28,7 +28,7 @@ form.addEventListener('submit',(e)=>{
     Books.push(newBook);
     card.classList.remove('active');
     overlay.classList.remove('active');
-    displayBooks(newBook);
+    newBook.createCard();
 })
 overlay.addEventListener('click',()=>{
     card.classList.remove('active');
@@ -40,7 +40,9 @@ function Book(author, title, pages, read){
     this.pages = pages;
     this.read = read;
 }
-
+Book.prototype.deleteBook = function(book){
+    target.parentElement.remove();
+}
 Book.prototype.createCard = function createCard(){
     let div = document.createElement('div');
     let read;
@@ -53,18 +55,19 @@ Book.prototype.createCard = function createCard(){
         read="Not Read";
         clas= 'not-read';
     };
+    div.dataset.title=`${this.title}`;
     div.innerHTML = `<p>${this.author} </p>
     <p>${this.title} </p>
     <p>${this.pages} </p>
-    <button class='${clas}'>${read} </button>
-    <button class='remove'>Remove</button>`
+    <button data-readButton class='${clas}'>${read} </button>
+    <button data-removeButton class='remove'>Remove</button>`
     bookGrid.append(div);
 }
 
-function displayBooks(Book){
-    Book.createCard();
+function displayCards(){
+    Books.forEach(this.createCard());
 }
-function displayBooks2(){
-    let displayedBooks = document.querySelectorAll('.book-card');
-    
-}
+
+document.querySelector('[data-removeButton]').addEventListener('click',(e)=>{
+    Book.deleteBook(e.target);
+})
