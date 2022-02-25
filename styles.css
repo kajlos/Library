@@ -25,6 +25,7 @@ header, footer{
 main{
     display:flex;
     flex-direction: column;
+    flex:1;
 }
 input[type=number] {
     -webkit-appearance: textfield;
@@ -110,4 +111,7 @@ p{
 }
 .remove{
     background-color: red;
+}
+.error{
+    color:red;
 }

@@ -15,16 +15,10 @@
     <main>
         <button data-add-book type="button" class="add-book-button">Add book</button>
         <div data-book-grid class="book-grid">
-            <div class="book-card">
-                <p>Author</p>
-                <p>Title</p>
-                <p>Pages </p>
-                <button>Read</button>
-                <button data-removeButton>Remove</button>
-            </div>
         </div>
         <div data-card class="add-book-card">
             <form id="form">
+            <p data-error class="error"></p>
             <p>Add new book</p>
             <label for="author">Author</label>
             <input type="text" id="author" required>
